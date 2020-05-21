@@ -4,10 +4,8 @@ title: About Me
 permalink: /about/
 ---
 
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
+Hello, I'm John F. Wu!
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+I'm a postdoctoral researcher at Johns Hopkins University and Space Telescope Science Institute. I'm particularly interested in studying galaxies using deep learning and multiwavelength observations.
 
-
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+My [home page](https://jwuphysics.github.io) describes more of my astrophysics work, while this blog might be a bit more focused on deep learning.
