@@ -3,9 +3,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Training a deep CNN to learn galaxy images in 15 minutes | John F Wu’s research blog</title>
+<title>Training a deep CNN to learn about galaxies in 15 minutes | John F Wu’s research blog</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Training a deep CNN to learn galaxy images in 15 minutes" />
+<meta property="og:title" content="Training a deep CNN to learn about galaxies in 15 minutes" />
 <meta name="author" content="John F Wu" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Let’s train a deep neural network from scratch! In this post, I provide a demonstration of how to optimize a model in order to predict galaxy metallicities using images, and I discuss some tricks for speeding up training and obtaining better results." />
@@ -17,7 +17,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-05-26T00:00:00-05:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"John F Wu"},"description":"Let’s train a deep neural network from scratch! In this post, I provide a demonstration of how to optimize a model in order to predict galaxy metallicities using images, and I discuss some tricks for speeding up training and obtaining better results.","@type":"BlogPosting","headline":"Training a deep CNN to learn galaxy images in 15 minutes","dateModified":"2020-05-26T00:00:00-05:00","datePublished":"2020-05-26T00:00:00-05:00","url":"https://jwuphysics.github.io/blog/galaxies/astrophysics/deep%20learning/computer%20vision/fastai/2020/05/26/training-a-deep-cnn.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://jwuphysics.github.io/blog/galaxies/astrophysics/deep%20learning/computer%20vision/fastai/2020/05/26/training-a-deep-cnn.html"},"image":"https://jwuphysics.github.io/blog/images/train-cnn.jpg","@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"John F Wu"},"description":"Let’s train a deep neural network from scratch! In this post, I provide a demonstration of how to optimize a model in order to predict galaxy metallicities using images, and I discuss some tricks for speeding up training and obtaining better results.","@type":"BlogPosting","headline":"Training a deep CNN to learn about galaxies in 15 minutes","dateModified":"2020-05-26T00:00:00-05:00","datePublished":"2020-05-26T00:00:00-05:00","url":"https://jwuphysics.github.io/blog/galaxies/astrophysics/deep%20learning/computer%20vision/fastai/2020/05/26/training-a-deep-cnn.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://jwuphysics.github.io/blog/galaxies/astrophysics/deep%20learning/computer%20vision/fastai/2020/05/26/training-a-deep-cnn.html"},"image":"https://jwuphysics.github.io/blog/images/train-cnn.jpg","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jwuphysics.github.io/blog/feed.xml" title="John F Wu's research blog" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -26,9 +26,9 @@
 <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-64633402-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
 
 <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Training a deep CNN to learn galaxy images in 15 minutes | John F Wu’s research blog</title>
+<title>Training a deep CNN to learn about galaxies in 15 minutes | John F Wu’s research blog</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Training a deep CNN to learn galaxy images in 15 minutes" />
+<meta property="og:title" content="Training a deep CNN to learn about galaxies in 15 minutes" />
 <meta name="author" content="John F Wu" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Let’s train a deep neural network from scratch! In this post, I provide a demonstration of how to optimize a model in order to predict galaxy metallicities using images, and I discuss some tricks for speeding up training and obtaining better results." />
@@ -40,7 +40,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-05-26T00:00:00-05:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"John F Wu"},"description":"Let’s train a deep neural network from scratch! In this post, I provide a demonstration of how to optimize a model in order to predict galaxy metallicities using images, and I discuss some tricks for speeding up training and obtaining better results.","@type":"BlogPosting","headline":"Training a deep CNN to learn galaxy images in 15 minutes","dateModified":"2020-05-26T00:00:00-05:00","datePublished":"2020-05-26T00:00:00-05:00","url":"https://jwuphysics.github.io/blog/galaxies/astrophysics/deep%20learning/computer%20vision/fastai/2020/05/26/training-a-deep-cnn.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://jwuphysics.github.io/blog/galaxies/astrophysics/deep%20learning/computer%20vision/fastai/2020/05/26/training-a-deep-cnn.html"},"image":"https://jwuphysics.github.io/blog/images/train-cnn.jpg","@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"John F Wu"},"description":"Let’s train a deep neural network from scratch! In this post, I provide a demonstration of how to optimize a model in order to predict galaxy metallicities using images, and I discuss some tricks for speeding up training and obtaining better results.","@type":"BlogPosting","headline":"Training a deep CNN to learn about galaxies in 15 minutes","dateModified":"2020-05-26T00:00:00-05:00","datePublished":"2020-05-26T00:00:00-05:00","url":"https://jwuphysics.github.io/blog/galaxies/astrophysics/deep%20learning/computer%20vision/fastai/2020/05/26/training-a-deep-cnn.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://jwuphysics.github.io/blog/galaxies/astrophysics/deep%20learning/computer%20vision/fastai/2020/05/26/training-a-deep-cnn.html"},"image":"https://jwuphysics.github.io/blog/images/train-cnn.jpg","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -117,7 +117,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Training a deep CNN to learn galaxy images in 15 minutes</h1><p class="page-description">Let&#39;s train a deep neural network from scratch! In this post, I provide a demonstration of how to optimize a model in order to predict galaxy metallicities using images, and I discuss some tricks for speeding up training and obtaining better results.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-26T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Training a deep CNN to learn about galaxies in 15 minutes</h1><p class="page-description">Let&#39;s train a deep neural network from scratch! In this post, I provide a demonstration of how to optimize a model in order to predict galaxy metallicities using images, and I discuss some tricks for speeding up training and obtaining better results.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-26T00:00:00-05:00" itemprop="datePublished">
         May 26, 2020
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -155,7 +155,7 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
-<li class="toc-entry toc-h1"><a href="#Predicting-metallicities">Predicting metallicities </a></li>
+<li class="toc-entry toc-h1"><a href="#Predicting-metallicities-from-pictures:-obtaining-the-data">Predicting metallicities from pictures: obtaining the data </a></li>
 <li class="toc-entry toc-h1"><a href="#Organizing-the-data-using-the-fastai2-DataBlock-API">Organizing the data using the fastai2 DataBlock API </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#Input-and-output-blocks">Input and output blocks </a></li>
@@ -197,8 +197,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Predicting-metallicities">
-<a class="anchor" href="#Predicting-metallicities" aria-hidden="true"><span class="octicon octicon-link"></span></a>Predicting metallicities<a class="anchor-link" href="#Predicting-metallicities"> </a>
+<h1 id="Predicting-metallicities-from-pictures:-obtaining-the-data">
+<a class="anchor" href="#Predicting-metallicities-from-pictures:-obtaining-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Predicting metallicities from pictures: obtaining the data<a class="anchor-link" href="#Predicting-metallicities-from-pictures:-obtaining-the-data"> </a>
 </h1>
 <p>In my <a href="https://github.com/jwuphysics/blog/blob/master/_notebooks/2020-05-21-exploring-galaxies-with-deep-learning.ipynb">previous post</a>, I described the problem that we now want to solve. In short, we want to train a convolutional neural network (CNN) to perform regression. The inputs are images of individual galaxies (although sometimes we're photobombed by other galaxies). The outputs are metallicities, $Z$, which usually take on a value between 7.8 and 9.4.</p>
 
@@ -208,7 +208,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The first step, of course, is to actually get the data. Galaxy images can be fetched using calls to the Sloan Digital Sky Survey (SDSS) SkyServer <code>getJpeg</code> cutout service via their <a href="http://skyserver.sdss.org/dr16/en/help/docs/api.aspx#imgcutout">RESTful API</a>. For instance, <a href="http://skyserver.sdss.org/dr16/SkyserverWS/ImgCutout/getjpeg?ra=39.8486&amp;dec=1.094&amp;scale=1&amp;width=224&amp;height=224">this URL</a> grabs a three-channel, $224 \times 224$-pixel JPG image at the coordinates RA = 39.8486 and Dec = 1.094. Galaxy metallicities can be obtained from the SDSS SkyServer using a <a href="http://skyserver.sdss.org/dr16/en/help/docs/sql_help.aspx">SQL query</a>. All in all, we make use of 130,000 galaxies with metallicity measurements.</p>
+<p>The first step, of course, is to actually get the data. Galaxy images can be fetched using calls to the Sloan Digital Sky Survey (SDSS) SkyServer <code>getJpeg</code> cutout service via their <a href="http://skyserver.sdss.org/dr16/en/help/docs/api.aspx#imgcutout">RESTful API</a>. For instance, <a href="http://skyserver.sdss.org/dr16/SkyserverWS/ImgCutout/getjpeg?ra=39.8486&amp;dec=1.094&amp;scale=1&amp;width=224&amp;height=224">this URL</a> grabs a three-channel, $224 \times 224$-pixel JPG image:
+<img src="/blog/images/copied_from_nb/images/sdss_example.jpg" alt="" title="An example galaxy at the coordinates RA = 39.8486 and Dec = 1.094"></p>
+<p>Galaxy metallicities can be obtained from the SDSS SkyServer using a <a href="http://skyserver.sdss.org/dr16/en/help/docs/sql_help.aspx">SQL query</a>. All in all, we make use of 130,000 galaxies with metallicity measurements.</p>
 
 </div>
 </div>
@@ -216,7 +218,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The code for the original published work can be found in my <a href="https://github.com/jwuphysics/galaxy-cnns">Github repo</a>. However, this code (from 2018) used <code>fastai</code> version 0.7, and I want to show an updated version using the new and improved <code>fastai2</code> codebase. Also, new "best practices" for deep learning and computer vision exist, so I'd like to highlight those updates as well!</p>
+<p>The code for the original published work (<a href="https://ui.adsabs.harvard.edu/abs/2019MNRAS.484.4683W/abstract">Wu &amp; Boada 2019</a>) can be found in my <a href="https://github.com/jwuphysics/galaxy-cnns">Github repo</a>. However, this code (from 2018) used <code>fastai</code> version 0.7, and I want to show an updated version using the new and improved <code>fastai2</code> codebase. Also, some of the "best practices" for deep learning and computer vision have evolved since then, so I'd like to highlight those updates as well!</p>
 
 </div>
 </div>
@@ -325,7 +327,18 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This means that a galaxy with <code>objID</code> 1237660634922090677 is located at RA = 158.326281 deg, Dec = 43.719674 deg, and has a metallicity of $Z$ = 8.6931. Our directory structure is such that the corresponding image is stored in <code>{ROOT}/images/1237660634922090677.jpg</code>, where <strong>ROOT</strong> is the project repository's root directory.</p>
+<p>This means that a galaxy with <code>objID</code> 1237654601557999788 is located at RA = 137.603036 deg, Dec = 3.508882 deg, and has a metallicity of $Z$ = 8.819281. Our directory structure is such that the corresponding image is stored in <code>{ROOT}/images/1237660634922090677.jpg</code>, where <code>ROOT</code> is the path to project repository.</p>
+<p>A tree-view from our <code>{ROOT}</code> directory might look like this:</p>
+
+<pre><code>.
+├── data
+│   └── master.csv
+├── images
+│   ├── 1237654601557999788.jpg
+│   ├── 1237651067353956485.jpg
+│   └── [...]
+└── notebooks
+    └── training-a-cnn.ipynb</code></pre>
 
 </div>
 </div>
