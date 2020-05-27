@@ -3,9 +3,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Training a deep CNN to learn from galaxy images in 15 minutes | John F Wu’s research blog</title>
+<title>Training a deep CNN to learn galaxy images in 15 minutes | John F Wu’s research blog</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Training a deep CNN to learn from galaxy images in 15 minutes" />
+<meta property="og:title" content="Training a deep CNN to learn galaxy images in 15 minutes" />
 <meta name="author" content="John F Wu" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Let’s train a deep neural network from scratch! In this post, I provide a demonstration of how to optimize a model in order to predict galaxy metallicities using images, and I discuss some tricks for speeding up training and obtaining better results." />
@@ -17,7 +17,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-05-26T00:00:00-05:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"John F Wu"},"description":"Let’s train a deep neural network from scratch! In this post, I provide a demonstration of how to optimize a model in order to predict galaxy metallicities using images, and I discuss some tricks for speeding up training and obtaining better results.","@type":"BlogPosting","headline":"Training a deep CNN to learn from galaxy images in 15 minutes","dateModified":"2020-05-26T00:00:00-05:00","datePublished":"2020-05-26T00:00:00-05:00","url":"https://jwuphysics.github.io/blog/galaxies/astrophysics/deep%20learning/computer%20vision/fastai/2020/05/26/training-a-deep-cnn.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://jwuphysics.github.io/blog/galaxies/astrophysics/deep%20learning/computer%20vision/fastai/2020/05/26/training-a-deep-cnn.html"},"image":"https://jwuphysics.github.io/blog/images/train-cnn.jpg","@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"John F Wu"},"description":"Let’s train a deep neural network from scratch! In this post, I provide a demonstration of how to optimize a model in order to predict galaxy metallicities using images, and I discuss some tricks for speeding up training and obtaining better results.","@type":"BlogPosting","headline":"Training a deep CNN to learn galaxy images in 15 minutes","dateModified":"2020-05-26T00:00:00-05:00","datePublished":"2020-05-26T00:00:00-05:00","url":"https://jwuphysics.github.io/blog/galaxies/astrophysics/deep%20learning/computer%20vision/fastai/2020/05/26/training-a-deep-cnn.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://jwuphysics.github.io/blog/galaxies/astrophysics/deep%20learning/computer%20vision/fastai/2020/05/26/training-a-deep-cnn.html"},"image":"https://jwuphysics.github.io/blog/images/train-cnn.jpg","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jwuphysics.github.io/blog/feed.xml" title="John F Wu's research blog" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -26,9 +26,9 @@
 <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','64633402','auto');ga('require','displayfeatures');ga('send','pageview');</script>
 
 <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Training a deep CNN to learn from galaxy images in 15 minutes | John F Wu’s research blog</title>
+<title>Training a deep CNN to learn galaxy images in 15 minutes | John F Wu’s research blog</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Training a deep CNN to learn from galaxy images in 15 minutes" />
+<meta property="og:title" content="Training a deep CNN to learn galaxy images in 15 minutes" />
 <meta name="author" content="John F Wu" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Let’s train a deep neural network from scratch! In this post, I provide a demonstration of how to optimize a model in order to predict galaxy metallicities using images, and I discuss some tricks for speeding up training and obtaining better results." />
@@ -40,7 +40,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-05-26T00:00:00-05:00" />
 <script type="application/ld+json">
-{"author":{"@type":"Person","name":"John F Wu"},"description":"Let’s train a deep neural network from scratch! In this post, I provide a demonstration of how to optimize a model in order to predict galaxy metallicities using images, and I discuss some tricks for speeding up training and obtaining better results.","@type":"BlogPosting","headline":"Training a deep CNN to learn from galaxy images in 15 minutes","dateModified":"2020-05-26T00:00:00-05:00","datePublished":"2020-05-26T00:00:00-05:00","url":"https://jwuphysics.github.io/blog/galaxies/astrophysics/deep%20learning/computer%20vision/fastai/2020/05/26/training-a-deep-cnn.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://jwuphysics.github.io/blog/galaxies/astrophysics/deep%20learning/computer%20vision/fastai/2020/05/26/training-a-deep-cnn.html"},"image":"https://jwuphysics.github.io/blog/images/train-cnn.jpg","@context":"https://schema.org"}</script>
+{"author":{"@type":"Person","name":"John F Wu"},"description":"Let’s train a deep neural network from scratch! In this post, I provide a demonstration of how to optimize a model in order to predict galaxy metallicities using images, and I discuss some tricks for speeding up training and obtaining better results.","@type":"BlogPosting","headline":"Training a deep CNN to learn galaxy images in 15 minutes","dateModified":"2020-05-26T00:00:00-05:00","datePublished":"2020-05-26T00:00:00-05:00","url":"https://jwuphysics.github.io/blog/galaxies/astrophysics/deep%20learning/computer%20vision/fastai/2020/05/26/training-a-deep-cnn.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://jwuphysics.github.io/blog/galaxies/astrophysics/deep%20learning/computer%20vision/fastai/2020/05/26/training-a-deep-cnn.html"},"image":"https://jwuphysics.github.io/blog/images/train-cnn.jpg","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -117,7 +117,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Training a deep CNN to learn from galaxy images in 15 minutes</h1><p class="page-description">Let&#39;s train a deep neural network from scratch! In this post, I provide a demonstration of how to optimize a model in order to predict galaxy metallicities using images, and I discuss some tricks for speeding up training and obtaining better results.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-26T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Training a deep CNN to learn galaxy images in 15 minutes</h1><p class="page-description">Let&#39;s train a deep neural network from scratch! In this post, I provide a demonstration of how to optimize a model in order to predict galaxy metallicities using images, and I discuss some tricks for speeding up training and obtaining better results.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-26T00:00:00-05:00" itemprop="datePublished">
         May 26, 2020
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -125,7 +125,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      17 min read
+      18 min read
     
 </span></p>
 
@@ -200,7 +200,7 @@ window.onload = wrap_img;
 <h1 id="Predicting-metallicities">
 <a class="anchor" href="#Predicting-metallicities" aria-hidden="true"><span class="octicon octicon-link"></span></a>Predicting metallicities<a class="anchor-link" href="#Predicting-metallicities"> </a>
 </h1>
-<p>In my <a href="https://github.com/jwuphysics/blog/blob/master/_notebooks/2020-05-21-exploring-galaxies-with-deep-learning.ipynb">previous post</a>, I described the problem that we now want to solve. In short, we want to train a convolutional neural network to perform regression. The inputs are images of individual galaxies, for the most part, although sometimes neighboring or background/foreground galaxies get in the picture too. The outputs are metallicities, $Z$, which usually take on a value between 7.8 and 9.4.</p>
+<p>In my <a href="https://github.com/jwuphysics/blog/blob/master/_notebooks/2020-05-21-exploring-galaxies-with-deep-learning.ipynb">previous post</a>, I described the problem that we now want to solve. In short, we want to train a convolutional neural network (CNN) to perform regression. The inputs are images of individual galaxies (although sometimes we're photobombed by other galaxies). The outputs are metallicities, $Z$, which usually take on a value between 7.8 and 9.4.</p>
 
 </div>
 </div>
@@ -208,7 +208,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The first step, of course, is to actually get the data. Galaxy images can be fetched using calls to the Sloan Digital Sky Survey (SDSS) SkyServer <code>getJpeg</code> cutout service via their <a href="http://skyserver.sdss.org/dr16/en/help/docs/api.aspx#imgcutout">RESTful API</a>. For instance, the URL <code>http://skyserver.sdss.org/dr16/SkyserverWS/ImgCutout/getjpeg?ra=39.8486&amp;dec=1.094&amp;scale=1&amp;width=224&amp;height=224</code> grabs a three-channel, $224 \times 224$-pixel JPG image at the coordinates RA = 39.8486 and Dec = 1.094. Galaxy metallicities can be obtained from the SDSS SkyServer using a <a href="http://skyserver.sdss.org/dr16/en/help/docs/sql_help.aspx">SQL query</a>. All in all, we make use of 130,000 galaxies with metallicity measurements.</p>
+<p>The first step, of course, is to actually get the data. Galaxy images can be fetched using calls to the Sloan Digital Sky Survey (SDSS) SkyServer <code>getJpeg</code> cutout service via their <a href="http://skyserver.sdss.org/dr16/en/help/docs/api.aspx#imgcutout">RESTful API</a>. For instance, <a href="http://skyserver.sdss.org/dr16/SkyserverWS/ImgCutout/getjpeg?ra=39.8486&amp;dec=1.094&amp;scale=1&amp;width=224&amp;height=224">this URL</a> grabs a three-channel, $224 \times 224$-pixel JPG image at the coordinates RA = 39.8486 and Dec = 1.094. Galaxy metallicities can be obtained from the SDSS SkyServer using a <a href="http://skyserver.sdss.org/dr16/en/help/docs/sql_help.aspx">SQL query</a>. All in all, we make use of 130,000 galaxies with metallicity measurements.</p>
 
 </div>
 </div>
@@ -216,7 +216,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The code for the original can be found in my <a href="https://github.com/jwuphysics/galaxy-cnns">Github repo</a>. However, this code (from 2018) used <code>fastai</code> version 0.7, and I want to show an updated version using the new and improved <code>fastai2</code> codebase. Also, new "best practices" for deep learning and computer vision exist, so I'd like to highlight those updates as well!</p>
+<p>The code for the original published work can be found in my <a href="https://github.com/jwuphysics/galaxy-cnns">Github repo</a>. However, this code (from 2018) used <code>fastai</code> version 0.7, and I want to show an updated version using the new and improved <code>fastai2</code> codebase. Also, new "best practices" for deep learning and computer vision exist, so I'd like to highlight those updates as well!</p>
 
 </div>
 </div>
@@ -333,7 +333,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We are ready to set up our <code>DataBlock</code>, which is a core fastai construct. The process is both straightforward and extremely powerful, and comprises a few steps:</p>
+<p>We are ready to set up our <code>DataBlock</code>, which is a core fastai construct for handling data. The process is both straightforward and extremely powerful, and comprises a few steps:</p>
 <ul>
 <li>Define the inputs and outputs in the <code>blocks</code> argument</li>
 <li>Specify how to get your inputs (<code>get_x</code>) and outputs (<code>get_y</code>)</li>
@@ -379,7 +379,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Okay, now let's take a look at each piece.</p>
+<p>Okay, now let's take a look at each part.</p>
 
 </div>
 </div>
@@ -510,7 +510,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Next, I'll want to determine some data augmentation transformations. These are handy for varying our image data: crops, flips, and rotations can be applied at random in order to dramatically expand our data set. Even though we have &gt;100,000 unique galaxy images, our CNN model will contain millions of trainable parameters. Augmenting the data set will be especially valuable for mitigating overfitting.</p>
+<p>Next, I'll want to determine some data augmentation transformations. These are handy for varying our image data: crops, flips, and rotations can be applied at random using fastai's <code>aug_transforms()</code> in order to dramatically expand our data set. Even though we have &gt;100,000 unique galaxy images, our CNN model will contain millions of trainable parameters. Augmenting the data set will be especially valuable for mitigating overfitting.</p>
 <p>Translations, rotations, and reflections do not change our galaxies physically. However, we won't want to zoom in and out of the images, since that might impact CNN's ability to infer unknown (but possibly covariate) quantities such as the distances or sizes of the galaxies. Similarly, color shifts or image warps may alter the star formation properties or stellar structures of the galaxies, so we don't want to mess with that.</p>
 <p>We will center crop the image to $144 \times 144$ pixels using <code>CropPad()</code>, which reduces some of the surrounding black space (and other galaxies) near the edges of the images. We will then apply a $112 \times 112$-pixel <code>RandomCrop()</code> for some more translational freedom. The augmentation transforms will be performed along with image normalization, which rescales the images so that they have zero mean and unit variance (this is always a good idea). The first set of image crop transformations, <code>item_tfms</code>, will be individually performed on a CPU. The second set of transformations, <code>batch_tfms</code>, will be applied one batch at a time on the GPU.</p>
 
@@ -559,7 +559,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We've now gone through each of the steps, but we haven't yet loaded the data! <code>ImageDataLoaders</code> has a class method called <code>from_dblock</code> that loads everything in quite nicely if we supply it the <code>DataBlock</code> object that we've constructed, a data source (<code>df</code>--finally!), a file path, and a batch size. We've set the batch size <code>bs=128</code> because that fits on the GPU, but I've found that values between 32 and 128 usually work pretty well.</p>
+<p>We've now gone through each of the steps, but we haven't yet loaded the data! <code>ImageDataLoaders</code> has a class method called <code>from_dblock()</code> that loads everything in quite nicely if we give it a data source. We can pass along the <code>DataBlock</code> object that we've constructed, the DataFrame <code>df</code>, the file path <code>ROOT</code>, and a batch size. We've set the batch size <code>bs=128</code> because that fits on the GPU, and it ensures speedy training, but I've found that values between 32 and 128 often work well.</p>
 
 </div>
 </div>
@@ -666,7 +666,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In <code>fastai2</code>, we can instantiate a 34-layer <em>enhanced</em> resnet model by using <code>model = xresnet34()</code>. We could have selected an 18-layer model with <code>model = xresnet18()</code>, or even defined our own custom 9-layer resnet using</p>
+<p>In <code>fastai</code>, we can instantiate a 34-layer <em>enhanced</em> resnet model by using <code>model = xresnet34()</code>. We could have selected an 18-layer model with <code>model = xresnet18()</code>, or even defined our own custom 9-layer resnet using</p>
 <div class="highlight"><pre><span></span><span class="n">xresnet9</span> <span class="o">=</span> <span class="n">XResNet</span><span class="p">(</span><span class="n">ResBlock</span><span class="p">,</span> <span class="n">expansion</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">layers</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> 
 <span class="n">model</span> <span class="o">=</span> <span class="n">xresnet</span><span class="p">()</span>
 </pre></div>
@@ -727,13 +727,13 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Tong He et al. (2018) summarize many small tweaks in their <a href="https://arxiv.org/abs/1812.01187">"bag of tricks" paper</a> which can be combined to dramatically improve the performance of a CNN. In their Section 4, they describe several updates to the resnet model architecture. The fastai2 library takes these into account, and also implements a few other tweaks, in order to increase performance and speed. I've listed some of them below:</p>
+<p>The <a href="https://arxiv.org/abs/1812.01187">"bag of tricks" paper</a> by Tong He et al. (2018) summarizes many small tweaks that can be combined to dramatically improve the performance of a CNN. They describe several updates to the resnet model architecture in Section 4 of their paper. The fastai library takes these into account, and also implements a few other tweaks, in order to increase performance and speed. I've listed some of them below:</p>
 <ul>
 <li>The CNN stem (first few layers) is updated using efficient $3 \times 3$ convolutions rather than a single expensive layer of $7\times 7$ convolutions.</li>
 <li>Residual blocks are changed so that $1 \times 1$ convolutions don't skip over useful information. This is done by altering the order of convolution strides in one path of the downsampling block, and adding a pooling layer in the other path (see Figure 2 of He et al. 2018).</li>
 <li>The model concatenates the outputs of both AveragePool and MaxPool layers (using <code>AdaptiveConcatPool2d</code>) rather than using just one.</li>
 </ul>
-<p>Some of these are described in greater detail in <a href="https://github.com/fastai/fastbook/blob/master/14_resnet.ipynb">Chapter 14</a> of the forthcoming Fast.ai book, "Deep Learning for Coders with fastai and Pytorch" (which can be purchased on <a href="https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527">Amazon</a>).</p>
+<p>Some of these tweaks are described in greater detail in <a href="https://github.com/fastai/fastbook/blob/master/14_resnet.ipynb">Chapter 14</a> of the forthcoming fastai book, "Deep Learning for Coders with fastai and Pytorch" (which can be purchased on <a href="https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527">Amazon</a>).</p>
 
 </div>
 </div>
@@ -750,7 +750,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The concept of attention has gotten a lot of, well, <em>attention</em> in deep learning, particularly in natural language processing (NLP). This is because the attention mechanism is a core part of the <a href="https://arxiv.org/abs/1706.03762">Transformer architecture</a>, which has revolutionized our ability to learn from text data. I won't cover the Transformer architecture or NLP in this post, since it's way out of scope, but suffice it to say that lots of deep learning folks are interested in the idea of attention.</p>
+<p>The concept of attention has gotten a lot of, well, <em>attention</em> in deep learning, particularly in natural language processing (NLP). This is because the attention mechanism is a core part of the <a href="https://arxiv.org/abs/1706.03762">Transformer architecture</a>, which has revolutionized our ability to learn from text data. I won't cover the Transformer architecture or NLP in this post, since it's way out of scope, but suffice it to say that lots of deep learning folks are interested in this idea.</p>
 
 </div>
 </div>
@@ -760,7 +760,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img src="/blog/images/copied_from_nb/images/self_attention.png" alt="" title="An example of the attention mechanism using query f, key g, and value h, to encode interactions across a convolutional feature map. Figure from Han Zhang et al. 2018."></p>
 <p>The attention mechanism allows a neural network layer to encode interactions from inputs on scales larger than the size of a typical convolutional filter. Self-attention is simply when these relationships, encoded via a <em>query/key/value</em> system, are applied using the same input. As a concrete example, self-attention added to CNNs in our scenario -- estimating metallicity from galaxy images -- may allow the network to learn morphological features that often require long-range dependencies, such as the orientation and position angle of a galaxy.</p>
-<p>In fastai2, we can set <code>sa=True</code> when initializing a CNN in order to get the self-attention layers!</p>
+<p>In fastai, we can set <code>sa=True</code> when initializing a CNN in order to get the self-attention layers!</p>
 
 </div>
 </div>
@@ -768,7 +768,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Another way to let a CNN process global information is to use <a href="https://arxiv.org/abs/1709.01507">Squeeze-and-Excitation Networks</a>, which are also <a href="https://github.com/fastai/fastai2/blob/44cc025d9e5e2823d6fd033b84245b0be0c5c9df/fastai2/layers.py#L562">included in fastai2</a>. Or, one could even <a href="https://arxiv.org/abs/1906.05909">entirely replace convolutions with self-attention</a>. But let's get back on target...</p>
+<p>Another way to let a CNN process global information is to use <a href="https://arxiv.org/abs/1709.01507">Squeeze-and-Excitation Networks</a>, which are also <a href="https://github.com/fastai/fastai2/blob/44cc025d9e5e2823d6fd033b84245b0be0c5c9df/fastai2/layers.py#L562">included in fastai</a>. Or, one could even <a href="https://arxiv.org/abs/1906.05909">entirely replace convolutions with self-attention</a>. But we're starting to get off-topic...</p>
 
 </div>
 </div>
@@ -786,9 +786,9 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Typically, the Rectified Linear Unit (ReLU) is the non-linear activation function of choice for nearly all deep learning tasks. It is both cheap to compute and simple to understand: <code>ReLU(x) = max(0, x)</code>.</p>
-<p>That was all before Diganta Misra introduced us to the <a href="https://forums.fast.ai/t/meet-mish-new-activation-function-possible-successor-to-relu/53299">Mish activation function</a> -- as an undergraduate researcher! He also <a href="https://arxiv.org/abs/1908.08681">wrote a paper</a> and summarizes some of the reasoning behind it in a <a href="https://github.com/digantamisra98/Mish">Github repo</a>. Less Wright <a href="https://medium.com/@lessw/meet-mish-new-state-of-the-art-ai-activation-function-the-successor-to-relu-846a6d93471f">shows</a> that it performs extremely well in several image classification challenges. I've also found Mish to work extremely well as a drop-in replacement for ReLU.</p>
-<p>The intuition behind it is similar to the reason why resnets perform so well: the loss landscape becomes smoother and thereby easier to explore. Mish resembles another activation function, <a href="https://arxiv.org/abs/1710.05941">Swish</a>, in that neither it nor its derivative is monotonic, leading to more nuanced behavior during training.</p>
-<p>Although Mish is a little bit slower than ReLU, a <a href="https://github.com/thomasbrandon/mish-cuda/">CUDA implementation</a> helps speed things up a bit, so we need to <code>pip install</code> it and grab it with <code>from mish_cuda import MishCuda</code>. Then, we can substitute it into the model when initializing our CNN using <code>act_cls=MishCuda</code>.</p>
+<p>That was all before Diganta Misra introduced us to the <a href="https://github.com/digantamisra98/Mish">Mish activation function</a> -- as an undergraduate researcher! He also <a href="https://arxiv.org/abs/1908.08681">wrote a paper</a> and summarizes some of the reasoning behind it in a <a href="https://forums.fast.ai/t/meet-mish-new-activation-function-possible-successor-to-relu/53299">forum post</a>. Less Wright, from the fastai community, shows that <a href="https://medium.com/@lessw/meet-mish-new-state-of-the-art-ai-activation-function-the-successor-to-relu-846a6d93471f">it performs extremely well</a> in several image classification challenges. I've also found that Mish is perfect as a drop-in replacement for ReLU in regression tasks.</p>
+<p>The intuition behind the Mish activation function's success is similar to the reason why resnets perform so well: the loss landscape becomes smoother and thereby easier to explore. ReLU is non-differentiable at the origin, causing steep spikes in the loss. Mish resembles another activation function, <a href="https://arxiv.org/abs/1710.05941">Swish</a>, in that neither it nor its derivative is monotonic; this seems to lead to more complex and nuanced behavior during training. However, it's not clear (from a theoretical perspective) why such activation functions empirically perform so well.</p>
+<p>Although Mish is a little bit slower than ReLU, a <a href="https://github.com/thomasbrandon/mish-cuda/">CUDA implementation</a> helps speed things up a bit. We need to <code>pip install</code> it and then import it with <code>from mish_cuda import MishCuda</code>. Then, we can substitute it into the model when initializing our CNN using <code>act_cls=MishCuda</code>.</p>
 
 </div>
 </div>
@@ -805,7 +805,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Next we want to define a loss function. The mean squared error (MSE) works fine for training the network, but it makes more sense to understand how well our CNN performs using the root mean squared error (RMSE). We can create a function to compute the RMSE loss between predicted values $p$ and true values $y$.</p>
+<p>Next we want to select a loss function. The mean squared error (MSE) is suitable for training the network, but we can more easily interpret the root mean squared error (RMSE). We need to create a function to compute the RMSE loss between predictions <code>p</code> and true metalllicity values <code>y</code>.</p>
 <p>(Note that we use <code>.view(-1)</code> to flatten our Pytorch <code>Tensor</code> objects since we're only predicting a single variable.)</p>
 
 </div>
@@ -841,8 +841,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Around mid-2019, two papers came out about the stability of training neural networks: <a href="https://arxiv.org/abs/1907.08610">LookAhead</a> and <a href="https://arxiv.org/abs/1908.03265">Rectified Adam (RAdam)</a> are both novel optimizers that address the problem of excess variance during training. LookAhead mitigates the variance problem by scouting a few steps ahead, and then choosing how to optimally update the model's parameters. RAdam adds a term while computing the adaptive learning rate in order to address training instabilities (see, e.g., the original <a href="https://arxiv.org/abs/1412.6980">Adam optimizer</a>).</p>
-<p>Less Wright, from the fastai community, quickly realized that these two optimizers <a href="https://forums.fast.ai/t/meet-ranger-radam-lookahead-optimizer/52886">could be combined</a>. His <a href="https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer">"Ranger" optimizer</a> is the product of these two papers (and now also includes <a href="https://arxiv.org/abs/2004.01461v2">"gradient centralization"</a> by default). Again, I have found this addition to be excellent using empirical tests.</p>
+<p>Around mid-2019, we saw two new papers regarding the stability of training neural networks: <a href="https://arxiv.org/abs/1907.08610">LookAhead</a> and <a href="https://arxiv.org/abs/1908.03265">Rectified Adam (RAdam)</a>. Both papers feature novel optimizers that address the problem of excess variance during training. LookAhead mitigates the variance problem by scouting a few steps ahead, and then choosing how to optimally update the model's parameters. RAdam adds a term while computing the adaptive learning rate in order to address training instabilities (see, e.g., the original <a href="https://arxiv.org/abs/1412.6980">Adam optimizer</a>).</p>
+<p>Less Wright quickly realized that these two optimizers <a href="https://forums.fast.ai/t/meet-ranger-radam-lookahead-optimizer/52886">could be combined</a>. His <a href="https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer"><code>ranger</code> optimizer</a> is the product of these two papers (and now also includes a new tweak, <a href="https://arxiv.org/abs/2004.01461v2">gradient centralization</a>, by default). I have found <code>ranger</code> to give excellent results using empirical tests.</p>
 
 </div>
 </div>
@@ -1248,7 +1248,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Acknowledgments</strong>: I want to thank fastai core development team, <a href="https://twitter.com/jeremyphoward">Jeremy Howard</a> and <a href="https://twitter.com/GuggerSylvain">Sylvain Gugger</a>, as well as other contributors and invaluable members of the community, including <a href="https://github.com/lessw2020">Less Wright</a> and <a href="https://muellerzr.github.io/">Zachary Mueller</a>. I also want to acknowledge Google for their support via GCP credits for academic research. Finally, I want to give a shout out to <a href="https://github.com/boada">Steven Boada</a>, my original collaborator and co-author on <a href="https://arxiv.org/abs/1810.12913">our paper</a>.</p>
+<p><strong>Acknowledgments</strong>: I want to thank fastai core development team, <a href="https://twitter.com/jeremyphoward">Jeremy Howard</a> and <a href="https://twitter.com/GuggerSylvain">Sylvain Gugger</a>, as well as other contributors and invaluable members of the community, including <a href="https://github.com/lessw2020">Less Wright</a>, <a href="https://twitter.com/digantamisra1?lang=en">Diganta Misra</a>, and <a href="https://muellerzr.github.io/">Zachary Mueller</a>. I also want to acknowledge Google for their support via GCP credits for academic research. Finally, I want to give a shout out to <a href="https://github.com/boada">Steven Boada</a>, my original collaborator and co-author on <a href="https://arxiv.org/abs/1810.12913">our paper</a>.</p>
 
 </div>
 </div>
