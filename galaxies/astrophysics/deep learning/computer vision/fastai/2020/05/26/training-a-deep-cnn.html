@@ -125,7 +125,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      18 min read
+      19 min read
     
 </span></p>
 
@@ -210,7 +210,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The first step, of course, is to actually get the data. Galaxy images can be fetched using calls to the Sloan Digital Sky Survey (SDSS) SkyServer <code>getJpeg</code> cutout service via their <a href="http://skyserver.sdss.org/dr16/en/help/docs/api.aspx#imgcutout">RESTful API</a>. For instance, <a href="http://skyserver.sdss.org/dr16/SkyserverWS/ImgCutout/getjpeg?ra=39.8486&amp;dec=1.094&amp;scale=1&amp;width=224&amp;height=224">this URL</a> grabs a three-channel, $224 \times 224$-pixel JPG image:
 <img src="/blog/images/copied_from_nb/images/sdss_example.jpg" alt="" title="An example galaxy at the coordinates RA = 39.8486 and Dec = 1.094"></p>
-<p>Galaxy metallicities can be obtained from the SDSS SkyServer using a <a href="http://skyserver.sdss.org/dr16/en/help/docs/sql_help.aspx">SQL query</a>. All in all, we make use of 130,000 galaxies with metallicity measurements.</p>
+<p>Galaxy metallicities can be obtained from the SDSS SkyServer using a <a href="http://skyserver.sdss.org/dr16/en/help/docs/sql_help.aspx">SQL query</a> and a bit of <code>JOIN</code> magic. All in all, we use 130,000 galaxies with metallicity measurements as our training + validation data set.</p>
 
 </div>
 </div>
@@ -235,7 +235,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Suppose that we now have a directory full of galaxy images, and a <code>csv</code> file with the object identifier, coordinates, and metallcity for each galaxy. The <code>csv</code> table can be read using Pandas, so let's store that in a DataFrame <code>df</code>.</p>
+<p>Suppose that we now have a directory full of galaxy images, and a <code>csv</code> file with the object identifier, coordinates, and metallcity for each galaxy. The <code>csv</code> table can be read using Pandas, so let's store that in a DataFrame <code>df</code>. Let's take a look at five random rows of the table by calling <code>df.sample(5)</code>:</p>
 
 </div>
 </div>
