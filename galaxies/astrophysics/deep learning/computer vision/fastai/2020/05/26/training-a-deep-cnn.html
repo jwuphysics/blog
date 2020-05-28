@@ -671,7 +671,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="/blog/images/copied_from_nb/images/resnet_loss.png" alt="" title="One reason why resnets are so much more successful than traditional CNNs is because their loss landscapes are much smoother, and thus easier to optimize. Another way to change the loss landscape is through out choice of activation function, which we will see below. Figure from Hao Li et al. 2017."></p>
+<p><img src="/blog/images/copied_from_nb/images/resnet_loss.png" alt="" title="One reason why resnets are so much more successful than traditional CNNs is because their loss landscapes are much smoother, and thus easier to optimize. We can also re-shape the loss landscape through our choice of activation function, which we will see below. Figure from Hao Li et al. 2017."></p>
 
 </div>
 </div>
@@ -679,9 +679,9 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In <code>fastai</code>, we can instantiate a 34-layer <em>enhanced</em> resnet model by using <code>model = xresnet34()</code>. We could have selected an 18-layer model with <code>model = xresnet18()</code>, or even defined our own custom 9-layer resnet using</p>
+<p>In <code>fastai</code>, we can instantiate a 34-layer <em>enhanced</em> resnet model by using <code>model = xresnet34()</code>. We could have created a 18-layer model with <code>model = xresnet18()</code>, or even defined our own custom 9-layer resnet using</p>
 <div class="highlight"><pre><span></span><span class="n">xresnet9</span> <span class="o">=</span> <span class="n">XResNet</span><span class="p">(</span><span class="n">ResBlock</span><span class="p">,</span> <span class="n">expansion</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">layers</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> 
-<span class="n">model</span> <span class="o">=</span> <span class="n">xresnet</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">xresnet9</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -690,7 +690,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>But first, we need to set the number of outputs. Since we're performing single-variable regression, the number of outputs (specified by the <code>n_out</code> parameter) is <code>1</code>. Our <code>DataLoaders</code> class, <code>dls</code>, already knows this and has stored it in the property <code>dls.c</code>.</p>
+<p>But first, we need to set the number of outputs.  By default, these CNNs are suited for the ImageNet classification challenge, and so there are <code>1000</code> outputs. Since we're performing single-variable regression, the number of outputs (<code>n_out</code>) should be <code>1</code>. Our <code>DataLoaders</code> class, <code>dls</code>, already knows this and has stored the value <code>1</code> in <code>dls.c</code>.</p>
 
 </div>
 </div>
@@ -1243,7 +1243,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>It appears that we didn't get a lower RMSE using TTA, but that's okay. It's usually worth a shot, after you've finished training, since evaluating the neural network is relatively quick.</p>
+<p>It appears that we didn't get a lower RMSE using TTA, but that's okay. TTA is usually worth a shot after you've finished training, since evaluating the neural network is relatively quick.</p>
 
 </div>
 </div>
