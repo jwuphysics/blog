@@ -433,7 +433,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Next, I try to recreate the results in shown in Figure 3a of Obermeyer et al. (2019), shown on the left here:</p>
+<p>Next, I try to recreate the results in shown in Figure 3a of Obermeyer et al. (2019):</p>
 <p><img src="/blog/images/copied_from_nb/images/O19_fig3a.jpg" alt="" title="Fig. 3a from Obermeyer et al. 2019."></p>
 <p>The race-disaggregated patients are binned by risk score <em>percentile</em>, and then the mean medical cost (or any other property) is computed for each bin. These kinds of plots seem to be common in economics (for example, the <a href="https://opportunityinsights.org/data/">Opportunity Insights</a> research by Raj Chetty and collaborators), although I rarely see data illustrated this way in physics or astronomy.</p>
 <p>Fortunately, with <code>pandas</code>, we can bin the risk score by quantile using <code>pd.qcut()</code>. We then feed the output into the powerful <code>DataFrame.grouby()</code> function in order to get binned statistics, from which we compute the average mean cost.</p>
