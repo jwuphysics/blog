@@ -4,7 +4,7 @@ title: About Me
 permalink: /about/
 ---
 
-<img src="https://jwuphysics.github.io/images/portrait.jpg" width="200" alt="Picture of me in Kirstenbosch National Botanical Garden, South Africa. Photo credit to Andrew Baker, my PhD advisor." />
+<img src="https://jwuphysics.github.io/blog/images/self.jpg" width="320" alt="Picture of me at Johns Hopkins University. Picture credit to Jesse Rivera." />
 
 Hello, I'm John F. Wu!
 
