@@ -1,0 +1,15 @@
+// override defalt minima variables 
+
+$dt-gray-dark:            #fdf6e3;  // Background
+$dt-code-cell-background: #eee8d5; // background
+$dt-gray:                 #657b83; // Current Line & Selection
+$dt-gray-light:           #93a1a1; // foreground
+$dt-blue:                 #93a1a1; // comment
+
+// width of the content area
+// can be set as "px" or "%"
+$content-width:    1000px;
+$on-palm:          800px;
+$on-laptop:        1000px;
+$on-medium:        1000px;
+$on-large:         1200px;
