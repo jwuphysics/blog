@@ -335,55 +335,122 @@ table td { border: 1px solid #e8e8e8; }
 /*--- IMPORT STYLES FOR FASTPAGES ---*/
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
-.language-python + .language-plaintext { border-left: 1px solid grey; margin-left: 1rem !important; }
+.highlight .c { color: #93a1a1; font-style: italic; }
 
-[class^="language-"]:not(.language-plaintext) pre, [class^="language-"]:not(.language-plaintext) code { background-color: #323443 !important; color: #f8f8f2; }
+.highlight .err { color: #dc322f; }
 
-.language-python + .language-plaintext code { background-color: white !important; }
+.highlight .k { color: #586e75; font-weight: bold; }
 
-.language-python + .language-plaintext pre { background-color: white !important; }
+.highlight .o { color: #586e75; font-weight: bold; }
 
-.input_area pre, .input_area div { margin-bottom: 2rem !important; margin-top: 1.5rem !important; padding-bottom: 0 !important; padding-top: 0 !important; background: #323443 !important; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-family: Menlo, Monaco, Consolas, "Lucida Console", Roboto, Ubuntu, monospace; border-radius: 5px; font-size: 100%; }
+.highlight .cm { color: #93a1a1; font-style: italic; }
 
-.output_area pre, .output_area div { margin-bottom: 1rem !important; margin-top: 1rem !important; padding-bottom: 0 !important; padding-top: 0 !important; }
+.highlight .cp { color: #93a1a1; font-weight: bold; }
 
-.input_area pre { border-left: 1px solid lightcoral; }
+.highlight .c1 { color: #93a1a1; font-style: italic; }
 
-.output_area pre { border-left: 1px solid grey; margin-left: 1rem !important; }
+.highlight .cs { color: #93a1a1; font-weight: bold; font-style: italic; }
 
-.code_cell table { width: auto; }
+.highlight .gd { color: #dc322f; }
 
-/* Dracula Theme v1.2.5 https://github.com/zenorocha/dracula-theme Copyright 2016, All rights reserved Code licensed under the MIT license */
-.highlight { background: #323443 !important; color: #f8f8f2 !important; }
+.highlight .gd .x { color: #dc322f; }
 
-.highlight pre, .highlight code { background: #323443; color: #f8f8f2; }
+.highlight .ge { color: #657b83; font-style: italic; }
 
-.highlight .hll, .highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx, .highlight .sr, .highlight .s1, .highlight .ss { color: #e7997a; }
+.highlight .gr { color: #dc322f; }
 
-.highlight .go { color: #44475a; }
+.highlight .gh { color: #93a1a1; }
 
-.highlight .err, .highlight .g, .highlight .l, .highlight .n, .highlight .x, .highlight .ge, .highlight .gr, .highlight .gh, .highlight .gi, .highlight .gp, .highlight .gs, .highlight .gu, .highlight .gt, .highlight .ld, .highlight .no, .highlight .nd, .highlight .pi, .highlight .ni, .highlight .ne, .highlight .nn, .highlight .nx, .highlight .py, .highlight .w, .highlight .bp { color: #f8f8f2; background-color: #323443 !important; }
+.highlight .gi { color: #859900; }
 
-.highlight .p { font-weight: bold; color: #66d9ef; }
+.highlight .gi .x { color: #859900; }
 
-.highlight .ge { text-decoration: underline; }
+.highlight .go { color: #657b83; }
 
-.highlight .bp { font-style: italic; }
+.highlight .gp { color: #657b83; }
 
-.highlight .c, .highlight .ch, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs { color: #6272a4; }
+.highlight .gs { color: #586e75; font-weight: bold; }
 
-.highlight .kd, .highlight .kt, .highlight .nb, .highlight .nl, .highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi, .highlight .vm { color: #8be9fd; }
+.highlight .gu { color: #93a1a1; }
 
-.highlight .kd, .highlight .nb, .highlight .nl, .highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi, .highlight .vm { font-style: italic; }
+.highlight .gt { color: #dc322f; }
 
-.highlight .fm, .highlight .na, .highlight .nc, .highlight .nf { color: #ace591; }
+.highlight .kc { color: #586e75; font-weight: bold; }
 
-.highlight .k, .highlight .o, .highlight .cp, .highlight .kc, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .nt, .highlight .ow { color: #ff79c6; }
+.highlight .kd { color: #586e75; font-weight: bold; }
 
-.highlight .kc { color: #ace591; }
+.highlight .kp { color: #586e75; font-weight: bold; }
 
-.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .mo, .highlight .il { color: #bd93f9; }
+.highlight .kr { color: #586e75; font-weight: bold; }
 
-.highlight .gd { color: #ff5555; }
+.highlight .kt { color: #6c71c4; font-weight: bold; }
+
+.highlight .m { color: #2aa198; }
+
+.highlight .s { color: #d33682; }
+
+.highlight .na { color: #2aa198; }
+
+.highlight .nb { color: #268bd2; }
+
+.highlight .nc { color: #6c71c4; font-weight: bold; }
+
+.highlight .no { color: #2aa198; }
+
+.highlight .ni { color: #6c71c4; }
+
+.highlight .ne { color: #6c71c4; font-weight: bold; }
+
+.highlight .nf { color: #268bd2; font-weight: bold; }
+
+.highlight .nn { color: #657b83; }
+
+.highlight .nt { color: #268bd2; }
+
+.highlight .nv { color: #2aa198; }
+
+.highlight .ow { color: #586e75; font-weight: bold; }
+
+.highlight .w { color: #93a1a1; }
+
+.highlight .mf { color: #2aa198; }
+
+.highlight .mh { color: #2aa198; }
+
+.highlight .mi { color: #2aa198; }
+
+.highlight .mo { color: #2aa198; }
+
+.highlight .sb { color: #d33682; }
+
+.highlight .sc { color: #d33682; }
+
+.highlight .sd { color: #d33682; }
+
+.highlight .s2 { color: #d33682; }
+
+.highlight .se { color: #d33682; }
+
+.highlight .sh { color: #d33682; }
+
+.highlight .si { color: #d33682; }
+
+.highlight .sx { color: #d33682; }
+
+.highlight .sr { color: #859900; }
+
+.highlight .s1 { color: #d33682; }
+
+.highlight .ss { color: #d33682; }
+
+.highlight .bp { color: #93a1a1; }
+
+.highlight .vc { color: #2aa198; }
+
+.highlight .vg { color: #2aa198; }
+
+.highlight .vi { color: #2aa198; }
+
+.highlight .il { color: #2aa198; }
 
 /*# sourceMappingURL=style.css.map */
