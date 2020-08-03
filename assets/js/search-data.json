@@ -51,7 +51,7 @@
   
       ,"page1": {
           "title": "About Me",
-          "content": ". Hello, I’m John F. Wu! . I’m a postdoctoral researcher at Johns Hopkins University and Space Telescope Science Institute. I’m particularly interested in studying galaxies using deep learning and multiwavelength observations. . My home page describes more of my astrophysics work, while this blog might be a bit more focused on deep learning. .",
+          "content": ". Hello, I’m John F. Wu! . I’m a postdoctoral researcher at the Space Telescope Science Institute. I’m particularly interested in studying galaxies using deep learning and multiwavelength observations. I have spent time at Johns Hopkins University (in same research group as my current one), Rutgers University (for my PhD), and Carnegie Mellon University (for my undergraduate degree). . My home page describes more of my astrophysics work, while this blog might be a bit more focused on deep learning. Get in touch with me on Twitter (@jwuphysics) or via email (jwuphysics@gmail.com) if you want to chat! .",
           "url": "https://jwuphysics.github.io/blog/about/",
           "relUrl": "/about/",
           "date": ""
