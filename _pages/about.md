@@ -4,10 +4,10 @@ title: About Me
 permalink: /about/
 ---
 
-<img src="https://jwuphysics.github.io/blog/images/self.jpg" width="320" alt="Picture of me at Johns Hopkins University. Picture credit to Jesse Rivera." />
+<img src="https://jwuphysics.github.io/images/portrait.jpg" width="240" alt="Portrait of me. Picture credit to Andrew Baker." />
 
 Hello, I'm John F. Wu!
 
-I'm a postdoctoral researcher at Johns Hopkins University and Space Telescope Science Institute. I'm particularly interested in studying galaxies using deep learning and multiwavelength observations.
+I'm a postdoctoral researcher at the Space Telescope Science Institute. I'm particularly interested in studying galaxies using deep learning and multiwavelength observations. I have spent time at Johns Hopkins University (in same research group as my current one), Rutgers University (for my PhD), and Carnegie Mellon University (for my undergraduate degree).
 
-My [home page](https://jwuphysics.github.io) describes more of my astrophysics work, while this blog might be a bit more focused on deep learning.
+My [home page](https://jwuphysics.github.io) describes more of my astrophysics work, while this blog might be a bit more focused on deep learning. Get in touch with me on Twitter ([@jwuphysics](https://twitter.com/jwuphysics)) or via email ([jwuphysics@gmail.com](mailto:jwuphysics@gmail.com)) if you want to chat!
