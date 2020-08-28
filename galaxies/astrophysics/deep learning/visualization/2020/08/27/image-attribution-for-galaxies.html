@@ -175,10 +175,10 @@ window.onload = wrap_img;
     <ul class="section-nav">
 <li class="toc-entry toc-h1"><a href="#Galaxies,-neural-networks,-and-interpretability">Galaxies, neural networks, and interpretability </a></li>
 <li class="toc-entry toc-h1"><a href="#Binning-the-galaxies-into-metallicity-classes">Binning the galaxies into metallicity classes </a></li>
-<li class="toc-entry toc-h1"><a href="#A-shallow-CNN-classification-model">A shallow CNN classification model </a>
+<li class="toc-entry toc-h1"><a href="#A-CNN-classification-model">A CNN classification model </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#DataBlocks-for-classification">DataBlocks for classification </a></li>
-<li class="toc-entry toc-h2"><a href="#A-tiny-CNN">A tiny CNN </a></li>
+<li class="toc-entry toc-h2"><a href="#Constructing-a-simple-CNN">Constructing a simple CNN </a></li>
 <li class="toc-entry toc-h2"><a href="#Optimization-and-metrics">Optimization and metrics </a></li>
 </ul>
 </li>
@@ -373,8 +373,8 @@ Name: Z, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="A-shallow-CNN-classification-model">
-<a class="anchor" href="#A-shallow-CNN-classification-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>A shallow CNN classification model<a class="anchor-link" href="#A-shallow-CNN-classification-model"> </a>
+<h1 id="A-CNN-classification-model">
+<a class="anchor" href="#A-CNN-classification-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>A CNN classification model<a class="anchor-link" href="#A-CNN-classification-model"> </a>
 </h1>
 </div>
 </div>
@@ -468,8 +468,8 @@ Name: Z, dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="A-tiny-CNN">
-<a class="anchor" href="#A-tiny-CNN" aria-hidden="true"><span class="octicon octicon-link"></span></a>A tiny CNN<a class="anchor-link" href="#A-tiny-CNN"> </a>
+<h2 id="Constructing-a-simple-CNN">
+<a class="anchor" href="#Constructing-a-simple-CNN" aria-hidden="true"><span class="octicon octicon-link"></span></a>Constructing a simple CNN<a class="anchor-link" href="#Constructing-a-simple-CNN"> </a>
 </h2>
 <p>Next, we will construct our model. We will use the <code>fast.ai</code> <code>ConvLayer</code> class instead of writing out each sequence of 2d convolution, ReLU activation, and batch normalization layers. After the <code>ConvLayer</code>s, we pool the activations, flatten them so that they are of shape <code>(batch_size, 128)</code>, and pass them through a fully-connected (linear) layer.</p>
 
