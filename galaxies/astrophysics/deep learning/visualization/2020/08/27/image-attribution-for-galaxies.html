@@ -1186,7 +1186,7 @@ Name: Z, dtype: int64</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Finally, computing the Grad-CAM map is super easy! We average the gradients across the spatial axes (leaving only the "feature" axis) and then take the inner product with the activation maps. In the language of mathematics, we are computing 
 
-$$ \sum_{k} \frac{\partial y}{\partial \mathbf{A}^{(k)}_{ij}} \left [ \frac{1}{N_i N_j}\sum_{ij} \mathbf{A}^{(k)}_{i,j} \right ],$$
+$$ \sum_{k} \frac{\partial y}{\partial \mathbf{A}^{(k)}_{ij}} \left [ \frac{1}{N_i N_j}\sum_{i,j} \mathbf{A}^{(k)}_{ij} \right ],$$
 
 for the $k$ feature maps, $\mathbf{A}^{(k)}_{i,j}$, and the target class $y$. Note that the feature maps have shape $N_i \times N_j$, which ends up in the denominator as a constant, but this just gives us an arbitrary scaling factor. Finally, we stop Pytorch from computing any more gradients and pop it off the GPU with <code>.detach()</code> and <code>.cpu()</code>. We can then plot the map below.</p>
 
