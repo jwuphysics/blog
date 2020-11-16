@@ -135,7 +135,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      18 min read
+      19 min read
     
 </span></p>
 
@@ -161,12 +161,33 @@ window.onload = wrap_img;
     
 
     
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/jwuphysics/blog/tree/master/_notebooks/2020-05-26-training-a-deep-cnn.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/jwuphysics/blog/master?filepath=_notebooks%2F2020-05-26-training-a-deep-cnn.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/jwuphysics/blog/blob/master/_notebooks/2020-05-26-training-a-deep-cnn.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
       </header>
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
 <li class="toc-entry toc-h1"><a href="#Predicting-metallicities-from-pictures:-obtaining-the-data">Predicting metallicities from pictures: obtaining the data </a></li>
-<li class="toc-entry toc-h1"><a href="#Organizing-the-data-using-the-fastai2-DataBlock-API">Organizing the data using the fastai2 DataBlock API </a>
+<li class="toc-entry toc-h1"><a href="#Organizing-the-data-using-the-fastai-DataBlock-API">Organizing the data using the fastai DataBlock API </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#Input-and-output-blocks">Input and output blocks </a></li>
 <li class="toc-entry toc-h2"><a href="#Input-and-output-object-getters">Input and output object getters </a></li>
@@ -210,7 +231,7 @@ window.onload = wrap_img;
 <h1 id="Predicting-metallicities-from-pictures:-obtaining-the-data">
 <a class="anchor" href="#Predicting-metallicities-from-pictures:-obtaining-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Predicting metallicities from pictures: obtaining the data<a class="anchor-link" href="#Predicting-metallicities-from-pictures:-obtaining-the-data"> </a>
 </h1>
-<p>In my <a href="https://github.com/jwuphysics/blog/blob/master/_notebooks/2020-05-21-exploring-galaxies-with-deep-learning.ipynb">previous post</a>, I described the problem that we now want to solve. In short, we want to train a convolutional neural network (CNN) to perform regression. The inputs are images of individual galaxies (although sometimes we're photobombed by other galaxies). The outputs are metallicities, $Z$, which usually take on a value between 7.8 and 9.4.</p>
+<p>In my <a href="https://github.com/jwuphysics/blog/blob/master/_notebooks/2020-05-21-exploring-galaxies-with-deep-learning.ipynb">previous post</a>, I described the problem that we now want to solve. To summarize, we want to train a convolutional neural network (CNN) to perform regression. The inputs are images of individual galaxies (although sometimes we're photobombed by other galaxies). The outputs are metallicities, $Z$, which usually take on a value between 7.8 and 9.4.</p>
 
 </div>
 </div>
@@ -228,7 +249,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The code for the original published work (<a href="https://ui.adsabs.harvard.edu/abs/2019MNRAS.484.4683W/abstract">Wu &amp; Boada 2019</a>) can be found in my <a href="https://github.com/jwuphysics/galaxy-cnns">Github repo</a>. However, this code (from 2018) used <code>fastai</code> version 0.7, and I want to show an updated version using the new and improved <code>fastai2</code> codebase. Also, some of the "best practices" for deep learning and computer vision have evolved since then, so I'd like to highlight those updates as well!</p>
+<p>The code for the original published work (<a href="https://ui.adsabs.harvard.edu/abs/2019MNRAS.484.4683W/abstract">Wu &amp; Boada 2019</a>) can be found in my <a href="https://github.com/jwuphysics/galaxy-cnns">Github repo</a>. However, this code (from 2018) used <code>fastai</code> <em>version 0.7</em>, and I want to show an updated version using the new and improved <code>fastai</code> <em>version 2</em> codebase. Also, some of the "best practices" for deep learning and computer vision have evolved since then, so I'd like to highlight those updates as well!</p>
 
 </div>
 </div>
@@ -236,8 +257,8 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Organizing-the-data-using-the-fastai2-DataBlock-API">
-<a class="anchor" href="#Organizing-the-data-using-the-fastai2-DataBlock-API" aria-hidden="true"><span class="octicon octicon-link"></span></a>Organizing the data using the <code>fastai2</code> DataBlock API<a class="anchor-link" href="#Organizing-the-data-using-the-fastai2-DataBlock-API"> </a>
+<h1 id="Organizing-the-data-using-the-fastai-DataBlock-API">
+<a class="anchor" href="#Organizing-the-data-using-the-fastai-DataBlock-API" aria-hidden="true"><span class="octicon octicon-link"></span></a>Organizing the data using the <code>fastai</code> DataBlock API<a class="anchor-link" href="#Organizing-the-data-using-the-fastai-DataBlock-API"> </a>
 </h1>
 </div>
 </div>
@@ -245,7 +266,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Suppose that we now have a directory full of galaxy images, and a <code>csv</code> file with the object identifier, coordinates, and metallcity for each galaxy. The <code>csv</code> table can be read using Pandas, so let's store that in a DataFrame <code>df</code>. Let's take a look at five random rows of the table by calling <code>df.sample(5)</code>:</p>
+<p>Suppose that we now have a directory full of galaxy images, and a <code>csv</code> file with the object identifier, coordinates, and metallcity for each galaxy. The <code>csv</code> table can be <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html">read using Pandas</a>, so let's store that in a DataFrame <code>df</code>. We can take a look at five random rows of the table by calling <code>df.sample(5)</code>:</p>
 
 </div>
 </div>
@@ -361,7 +382,7 @@ window.onload = wrap_img;
 <li>Define the inputs and outputs in the <code>blocks</code> argument</li>
 <li>Specify how to get your inputs (<code>get_x</code>) and outputs (<code>get_y</code>)</li>
 <li>Decide how to split the data into training and validation sets (<code>splitter</code>)</li>
-<li>Define any CPU-level transformations (<code>item_tfms</code>) and GPU-level transformation (<code>batch_tfms</code>) used for preprocessing or augmenting your data.</li>
+<li>Define any CPU-level transformations (<code>item_tfms</code>) and GPU-level transformations (<code>batch_tfms</code>) used for preprocessing or augmenting your data.</li>
 </ul>
 
 </div>
@@ -451,12 +472,12 @@ window.onload = wrap_img;
     
     <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">"""Plot using matplotlib or your favorite program here!"""</span>
-        <span class="k">continue</span>
+        <span class="k">pass</span>
         
 <span class="n">FITSImage</span><span class="o">.</span><span class="n">create</span> <span class="o">=</span> <span class="n">Transform</span><span class="p">(</span><span class="n">FITSImage</span><span class="o">.</span><span class="n">create</span><span class="p">)</span> 
 
 <span class="k">def</span> <span class="nf">FITSImageBlock</span><span class="p">():</span> 
-    <span class="sd">"""A FITSImageBlock that can be used in the fastai2 DataBlock API.</span>
+    <span class="sd">"""A FITSImageBlock that can be used in the fastai DataBlock API.</span>
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="n">TransformBlock</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="n">FITSImage</span><span class="o">.</span><span class="n">create</span><span class="p">))</span>
 </pre></div>
@@ -514,7 +535,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>For the sake of simplicity, we'll just randomly split our data set using the aptly named <code>RandomSplitter</code> function. We can provide it with a number between 0 and 1 (corresponding to the fraction of data that will become the validation set), and also a random seed if we wish. In practice, this might look like:</p>
+<p>For the sake of simplicity, we'll just randomly split our data set using the aptly named <code>RandomSplitter</code> function. We can provide it with a number between 0 and 1 (corresponding to the fraction of data that will become the validation set), and also a random seed if we wish. If we want to set aside 20% of the data for validation, we can use this:</p>
 <div class="highlight"><pre><span></span><span class="n">splitter</span><span class="o">=</span><span class="n">RandomSplitter</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">56</span><span class="p">)</span>
 </pre></div>
 
@@ -648,7 +669,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Pardon the excessive nubmer of significant figures. We can fix this up by creating custom classes extending <code>Transform</code> and <code>ShowTitle</code>, but this is beyond the scope of the current project. Maybe I'll come back to this in a future post!</p>
+<p>Pardon the excessive number of significant figures. We can fix this up by creating custom classes extending <code>Transform</code> and <code>ShowTitle</code>, but this is beyond the scope of the current project. Maybe I'll come back to this in a future post!</p>
 
 </div>
 </div>
@@ -756,7 +777,7 @@ window.onload = wrap_img;
 <li>Residual blocks are changed so that $1 \times 1$ convolutions don't skip over useful information. This is done by altering the order of convolution strides in one path of the downsampling block, and adding a pooling layer in the other path (see Figure 2 of He et al. 2018).</li>
 <li>The model concatenates the outputs of both AveragePool and MaxPool layers (using <code>AdaptiveConcatPool2d</code>) rather than using just one.</li>
 </ul>
-<p>Some of these tweaks are described in greater detail in <a href="https://github.com/fastai/fastbook/blob/master/14_resnet.ipynb">Chapter 14</a> of the forthcoming fastai book, "Deep Learning for Coders with fastai and Pytorch" (which can be purchased on <a href="https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527">Amazon</a>).</p>
+<p>Some of these tweaks are described in greater detail in <a href="https://github.com/fastai/fastbook/blob/master/14_resnet.ipynb">Chapter 14</a> of the fastai book, "Deep Learning for Coders with fastai and Pytorch" (which can be also be purchased on <a href="https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527">Amazon</a>).</p>
 
 </div>
 </div>
@@ -783,7 +804,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img src="/blog/images/copied_from_nb/images/self_attention.png" alt="" title="An example of the attention mechanism using query f, key g, and value h, to encode interactions across a convolutional feature map. Figure from Han Zhang et al. 2018."></p>
 <p>The attention mechanism allows a neural network layer to encode interactions from inputs on scales larger than the size of a typical convolutional filter. Self-attention is simply when these relationships, encoded via a <em>query/key/value</em> system, are applied using the same input. As a concrete example, self-attention added to CNNs in our scenario -- estimating metallicity from galaxy images -- may allow the network to learn morphological features that often require long-range dependencies, such as the orientation and position angle of a galaxy.</p>
-<p>In fastai, we can set <code>sa=True</code> when initializing a CNN in order to get the self-attention layers!</p>
+<p>In fastai, we can set <code>sa=True</code> when initializing a CNN in order to get the <a href="https://github.com/fastai/fastai/blob/master/fastai/layers.py#L288">self-attention layers</a>!</p>
 
 </div>
 </div>
@@ -810,7 +831,7 @@ window.onload = wrap_img;
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Typically, the Rectified Linear Unit (ReLU) is the non-linear activation function of choice for nearly all deep learning tasks. It is both cheap to compute and simple to understand: <code>ReLU(x) = max(0, x)</code>.</p>
 <p>That was all before Diganta Misra introduced us to the <a href="https://github.com/digantamisra98/Mish">Mish activation function</a> -- as an undergraduate researcher! He also <a href="https://arxiv.org/abs/1908.08681">wrote a paper</a> and summarizes some of the reasoning behind it in a <a href="https://forums.fast.ai/t/meet-mish-new-activation-function-possible-successor-to-relu/53299">forum post</a>. Less Wright, from the fastai community, shows that <a href="https://medium.com/@lessw/meet-mish-new-state-of-the-art-ai-activation-function-the-successor-to-relu-846a6d93471f">it performs extremely well</a> in several image classification challenges. I've also found that Mish is perfect as a drop-in replacement for ReLU in regression tasks.</p>
-<p>The intuition behind the Mish activation function's success is similar to the reason why resnets perform so well: the loss landscape becomes smoother and thereby easier to explore. ReLU is non-differentiable at the origin, causing steep spikes in the loss. Mish resembles another activation function, <a href="https://arxiv.org/abs/1710.05941">Swish</a>, in that neither it nor its derivative is monotonic; this seems to lead to more complex and nuanced behavior during training. However, it's not clear (from a theoretical perspective) why such activation functions empirically perform so well.</p>
+<p>The intuition behind the Mish activation function's success is similar to the reason why resnets perform so well: the loss landscape becomes smoother and thereby easier to explore. ReLU is non-differentiable at the origin, causing steep spikes in the loss. Mish resembles another activation function, <a href="https://openreview.net/pdf?id=Bk0MRI5lg">GELU (or SiLU)</a>, in that neither it nor its derivative is monotonic; this seems to lead to more complex and nuanced behavior during training. However, it's not clear (from a theoretical perspective) why such activation functions empirically perform so well.</p>
 <p>Although Mish is a little bit slower than ReLU, a <a href="https://github.com/thomasbrandon/mish-cuda/">CUDA implementation</a> helps speed things up a bit. We need to <code>pip install</code> it and then import it with <code>from mish_cuda import MishCuda</code>. Then, we can substitute it into the model when initializing our CNN using <code>act_cls=MishCuda</code>.</p>
 
 </div>
@@ -984,7 +1005,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Finally, now that we've selected a learning rate ($0.01$), we can train for a few epochs (remember that one epoch is just a run-through using all of our training data, and we send in one batch of 64 images at a time). Sometimes, researchers simply train at a particular learning rate and wait until the results converge, and then lower the learning rate in order for the model to continue learning. This is because the model needs some serious updates toward the beginning of training (given that it has been initialized with random weights), and then needs to start taking smaller steps once its weights are in the right ballpark. Traditionally, this makes it very expensive to train models because they fail to reach converge for a long time.</p>
+<p>Finally, now that we've selected a learning rate ($0.01$), we can train for a few epochs. Remember that an <em>epoch</em> is just a run-through using all of our training data (and we send in one batch of 64 images at a time). Sometimes, researchers simply train at a particular learning rate and wait until the results converge, and then lower the learning rate in order for the model to continue learning. This is because the model needs some serious updates toward the beginning of training (given that it has been initialized with random weights), and then needs to start taking smaller steps once its weights are in the right ballpark. However, the learning rate can't be too high in th beginning, or the loss will diverge! Traditionally, researchers will select a safe (i.e., low) learning rate in the beginning, which can take a long time to converge.</p>
 <p>Fastai offers a few optimization <em>schedules</em>, which involve altering the learning rate over the course of training. The two most promising are called <code>fit_flat_cos</code> and <code>fit_one_cycle</code> (<a href="https://arxiv.org/abs/1708.07120">see more here</a>). I've found that <code>fit_flat_cos</code> tends to work better for classification tasks, while <code>fit_one_cycle</code> tends to work better for regression problems. Either way, the empirical results are fantastic -- especially coupled with the Ranger optimizer and all of the other tweaks we've discussed.</p>
 
 </div>
@@ -1211,7 +1232,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In summary, we were able to train a deep convolutional neural network to predict galaxy metallicity from three-color images in under 15 minutes. Our data set contained over 100,000 galaxies, so this was no easy feat! Data augmentation, neural network architecture design, and clever optimization tricks were essential for improving performance. With these tools in hand, we can quickly adapt our methodology to tackle many other kinds of problems!</p>
-<p><code>fastai2</code> is a powerful high-level library that extends Pytorch and is easy to use/customize. At the moment, the <a href="https://dev.fast.ai/">documentation</a> is still a bit lacking, but that's okay -- it's still under active development! One big takeaway is that fastai, which is all about <em>democratizing AI</em>, makes deep learning more accessible than ever before.</p>
+<p><code>fastai</code> version 2 is a powerful high-level library that extends Pytorch and is easy to use/customize. As of November 2020, the <a href="https://docs.fast.ai/">documentation</a> is still a bit lacking, but hopefully will continue to mature. One big takeaway is that fastai, which is all about <em>democratizing AI</em>, makes deep learning more accessible than ever before.</p>
 
 </div>
 </div>
@@ -1220,6 +1241,7 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Acknowledgments</strong>: I want to thank fastai core development team, <a href="https://twitter.com/jeremyphoward">Jeremy Howard</a> and <a href="https://twitter.com/GuggerSylvain">Sylvain Gugger</a>, as well as other contributors and invaluable members of the community, including <a href="https://github.com/lessw2020">Less Wright</a>, <a href="https://twitter.com/digantamisra1?lang=en">Diganta Misra</a>, and <a href="https://muellerzr.github.io/">Zachary Mueller</a>. I also want to acknowledge Google for their support via GCP credits for academic research. Finally, I want to give a shout out to <a href="https://github.com/boada">Steven Boada</a>, my original collaborator and co-author on <a href="https://arxiv.org/abs/1810.12913">our paper</a>.</p>
+<p><strong>Last updated</strong>: November 16, 2020</p>
 
 </div>
 </div>
